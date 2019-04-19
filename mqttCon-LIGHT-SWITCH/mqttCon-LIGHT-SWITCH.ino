@@ -63,16 +63,16 @@ void loop()
   if (digitalRead(btnUP) == 0) {
     delay(200);
     btnState = true;
-    //    mqtt->sync_advpub("CMMC", "LIGHT-002/$/command", "ON", false);
-    mqtt->sync_pub("ON");
+    mqtt->sync_advpub("", "CMMC/PLUG-001/$/command", "ON", false);
+//     mqtt->sync_pub("ON");
     while (digitalRead(btnUP) == 0) {
       delay(1);
     }
   } else if (digitalRead(btnDOWN) == 0) {
     delay(200);
     btnState = false;
-    //    mqtt->sync_advpub("CMMC", "LIGHT-002/$/command", "OFF", false);
-    mqtt->sync_pub("OFF");
+    mqtt->sync_advpub("", "CMMC/PLUG-001/$/command", "OFF", false);
+//     mqtt->sync_pub("OFF");
     while (digitalRead(btnDOWN) == 0) {
       delay(1);
     }
